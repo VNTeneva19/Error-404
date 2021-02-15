@@ -1,6 +1,6 @@
 <h1>Error 404</h1>
 
-<img src="Pictures/Logo.png" width="600">
+<img src="Pictures/Logo 2.png" width="1000">
 
 <p>Hello, we are team "Error 404". 
 This is our repo for the sprint - Letters, Words, Sentences.
