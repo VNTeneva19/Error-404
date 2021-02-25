@@ -1,9 +1,16 @@
 #include <iostream>
 #include <string>
-#include<cstdlib>
-#include<ctime>
+#include <cstring>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
+
+int NumbersCounter = 0;
+int CapitalLettersCounter = 0;
+int SignsCounter = 0;
+int PasswordStrength = 0;
+int LettersCounter = 0;
 
 void ClearScreen() {
 	cout << "\x1B[2J\x1B[H";
@@ -13,13 +20,15 @@ void ClearScreen() {
 void Menu() {
 	cout << "                                                   CHOOSE AN OPTION!" << endl;
 	cout << endl;
-	cout << "                                       Type 0 If you want to quit the program" << endl;
+	cout << "                                        Type 0 If you want to quit the program" << endl;
 	cout << endl;
 	cout << "                              Type 1 if you want to check if your password is secure enough" << endl;
 	cout << endl;
 	cout << "                              Type 2 if you want us to generate a secure password for you" << endl;
 	cout << endl;
 	cout << "                              Type 3 if you want to read about how secure our passwords are" << endl;
+	cout << endl;
+	cout << "                                        Type 4 if you want to save your password" << endl;
 
 	cout << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------";
@@ -27,6 +36,105 @@ void Menu() {
 
 
 	cout << "Type here...";
+}
+
+void CheckPasswordMenu() {
+	cout << endl << "                                       LET'S CHECK HOW SECURE YOUR PASSWORD IS" << endl;
+	cout << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------";
+	cout << endl;
+	cout << "Enter your password...";
+}
+void CheckPassword(string pass) {
+
+	for (int i = 0; i < pass.size(); i++) {
+		if ((pass[i] >= '!' && pass[i] <= '/') || (pass[i] >= ':' && pass[i] <= '?') || (pass[i] >= '[' && pass[i] <= '`') || (pass[i] >= '{' && pass[i] <= '~')) {
+			SignsCounter++;
+		}
+	}
+	if (SignsCounter != 0) {
+		PasswordStrength++;
+	}
+
+	for (int i = 0; i < pass.size(); i++) {
+		if (pass[i] >= 'a' && pass[i] <= 'z') {
+			LettersCounter++;
+		}
+	}
+	if (LettersCounter != 0) {
+		PasswordStrength++;
+	}
+
+	for (int i = 0; i < pass.size(); i++) {
+		if (pass[i] >= '0' && pass[i] <= '9') {
+			NumbersCounter++;
+		}
+	}
+	if (NumbersCounter != 0) {
+		PasswordStrength++;
+	}
+
+	for (int i = 0; i < pass.size(); i++) {
+		if (pass[i] >= 'A' && pass[i] <= 'Z') {
+			CapitalLettersCounter++;
+		}
+	}
+	if (CapitalLettersCounter != 0) {
+		PasswordStrength++;
+	}
+
+	cout << endl << "Strength of password: ";
+
+
+
+	if (PasswordStrength == 4) {
+		cout << "Very strong" << endl << endl;
+	}
+
+	if (PasswordStrength == 3) {
+		cout << "Strong" << endl << endl;
+	}
+
+	if (PasswordStrength == 2) {
+		cout << "Moderate" << endl << endl;
+	}
+
+	if (PasswordStrength == 1) {
+		cout << "Weak" << endl << endl;
+	}
+
+
+	if (PasswordStrength < 4) {
+		cout << "How to make your password better:" << endl << endl;
+	}
+
+
+	if (pass.size() < 6) {
+		cout << "- Make your password longer!" << endl;
+	}
+
+	if (NumbersCounter == 0) {
+		cout << "- Add numbers to your passowrd!" << endl;
+	}
+
+	if (LettersCounter == 0) {
+		cout << "- Add letters to your password!" << endl;
+	}
+
+	if (CapitalLettersCounter == 0) {
+		cout << "- Add capital letters to your password!" << endl;
+	}
+
+	if (SignsCounter == 0) {
+		cout << "- Add signs to your password" << endl;
+	}
+
+	NumbersCounter = 0;
+	CapitalLettersCounter = 0;
+	SignsCounter = 0;
+	PasswordStrength = 0;
+	LettersCounter = 0;
+
 }
 
 void Error404()
@@ -62,6 +170,7 @@ int main()
 
 	int choice;
 	int length;
+	string pass;
 
 	Error404();
 
@@ -79,7 +188,10 @@ int main()
 		case 0: cout << "Goodbye!";
 			return 0;
 
-		case 1: cout << "Let's check your password" << endl;
+		case 1: CheckPasswordMenu();
+			cin >> pass;
+			ClearScreen();
+			CheckPassword(pass);
 			cout << endl;
 			break;
 
@@ -96,6 +208,10 @@ int main()
 			break;
 
 		case 3: cout << "Here are the things that you might find interesting about how secure passwords can actually be" << endl;
+			cout << endl;
+			break;
+
+		case 4: cout << "Let's save your password" << endl;
 			cout << endl;
 			break;
 
