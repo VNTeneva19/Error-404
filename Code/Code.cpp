@@ -13,9 +13,12 @@ int SignsCounter = 0;
 int PasswordStrength = 0;
 int LettersCounter = 0;
 
-string app;
-string app1;
+string App;
+string App1;
+string pass;
+string password;
 int choice;
+int Counter;
 
 void ClearScreen() {
 	cout << "\x1B[2J\x1B[H";
@@ -40,7 +43,7 @@ void Menu() {
 	cout << endl;
 
 
-	cout << "Type here...";
+	cout << "Type here: ";
 }
 
 void Error404() {
@@ -68,16 +71,16 @@ void Error404() {
 }
 
 void UsefulInformation() {
-	cout << "                                                CREATE A STRONG PASSWORD" << endl;
+	cout << "                                                 CREATE A STRONG PASSWORD" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------";
 	cout << endl;
-	cout << "Make sure you follow the following tips" << endl << endl;
-	cout << " - A strong password can be memorable to you but nearly impossible for someone else to guess." << endl;
-	cout << " - Avoid personal info & common words" << endl;
-	cout << " - Create your password using 6 characters or more" << endl;
-	cout << " - Add capital letters to your password" << endl;
-	cout << " - Add numbers to your password" << endl;
-	cout << " - Add signs to your password" << endl << endl;
+	cout << "                                          Make sure you follow the following tips" << endl << endl;
+
+	cout << "                                     - Avoid personal info & common words" << endl;
+	cout << "                                     - Create your password using 6 characters or more" << endl;
+	cout << "                                     - Add capital and lower-case letters to your password" << endl;
+	cout << "                                     - Add numbers to your password" << endl;
+	cout << "                                     - Add signs to your password" << endl << endl;
 }
 
 void CheckPasswordMenu() {
@@ -125,7 +128,7 @@ void CheckPassword(string pass) {
 		PasswordStrength++;
 	}
 
-	cout << endl << "Strength of password: ";
+	cout << endl << "                                                STRENGTH OF PASSWORD: ";
 
 
 
@@ -155,28 +158,28 @@ void CheckPassword(string pass) {
 
 
 	if (PasswordStrength < 4) {
-		cout << "How to make your password better:" << endl << endl;
+		cout << "                                              How to make your password better:" << endl << endl;
 	}
 
 
 	if (pass.size() < 6) {
-		cout << "- Make your password longer!" << endl;
+		cout << "                                               - Make your password longer!" << endl;
 	}
 
 	if (NumbersCounter == 0) {
-		cout << "- Add numbers to your passowrd!" << endl;
+		cout << "                                               - Add numbers to your passowrd!" << endl;
 	}
 
 	if (LettersCounter == 0) {
-		cout << "- Add letters to your password!" << endl;
+		cout << "                                               - Add lower-case letter to your password!" << endl;
 	}
 
 	if (CapitalLettersCounter == 0) {
-		cout << "- Add capital letters to your password!" << endl;
+		cout << "                                               - Add capital letters to your password!" << endl;
 	}
 
 	if (SignsCounter == 0) {
-		cout << "- Add signs to your password!" << endl;
+		cout << "                                               - Add signs to your password!" << endl;
 	}
 
 	NumbersCounter = 0;
@@ -186,46 +189,64 @@ void CheckPassword(string pass) {
 	LettersCounter = 0;
 
 }
-	
-void SavePassword(string app) {
-	cout << endl << "                                                LET'S SAVE YOUR PASSWORD" << endl;
+
+void SavePasswordMenu() {
+
+	cout << endl << "                                               LET'S SAVE YOUR PASSWORD" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------";
 	cout << endl;
-	cout << "                                                 Enter the app's name: ";
-	cin >> app;
-}
 
-void SavePassword1(string pass) {
-	cout << endl << "                                                LET'S SAVE YOUR PASSWORD" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------";
+	cout << "                                        Type 1 if you want to save a password" << endl << endl;
+	cout << "                                     Type 2 if you want to check a saved password" << endl << endl;
+	cout << "                                              Enter your choice here: ";
+	cin >> choice;
+	ClearScreen();
+	if (choice == 1) {
 
-	cout << endl;
-	cout << "                                                  Enter your password: ";
-	cin >> pass;
-}
+		cout << endl << "                                              LET'S SAVE YOUR PASSWORD" << endl;
+		cout << "------------------------------------------------------------------------------------------------------------------------";
+		cout << endl;
+		cout << "                                               Enter the app's name: ";
+		cin >> App;
 
-void SavePassword2(string app1, string pass) {
-	cout << endl << "                                                LET'S SAVE YOUR PASSWORD" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------";
+		ClearScreen();
 
-	cout << endl;
-	cout << "                                      Enter the app which password you want to see: ";
-	cin >> app1;
-	if (app == app1) {
+		cout << endl << "                                               LET'S SAVE YOUR PASSWORD" << endl;
+		cout << "------------------------------------------------------------------------------------------------------------------------";
+		cout << endl;
+		cout << "                                                 Enter your password: ";
+		cin >> password;
+
+		ClearScreen();
+
+		cout << endl << "                                                   Your password is saved" << endl << endl;
 
 	}
-	cout << endl << "This is your " << app1 << "'s password: " << pass << endl << endl << endl << endl;
-}
 
-void SavePassword3(string pass, string app) {
-	cout << endl << "                                                LET'S SAVE YOUR PASSWORD" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------";
-	cout << endl;
+	if (choice == 2) {
+		cout << endl << "                                             LET'S CHECK YOUR SAVED PASSWORD" << endl;
+		cout << "------------------------------------------------------------------------------------------------------------------------";
 
-	cout << "                                        Type 1 if you want to save a password" << endl;
-	cout << "                                     Type 2 if you want to check a saved password" << endl;
-	cout << "Enter your choice here: ";
-	cin >> choice;
+		cout << endl;
+		cout << "                                      Enter the app which password you want to see: ";
+		cin >> App1;
+		if (App == App1) {
+			cout << endl << "                                            This is your " << App1 << "'s password: " << password << endl << endl << endl << endl;
+		}
+
+		else {
+			cout << endl << "                                          You haven't entered a password for this app" << endl << endl;
+		}
+	
+
+	}
+	else if (choice != 1 && choice != 2) {
+		cout << endl << "                                               Tht's not an option, try again" << endl << endl;
+	}
+
+	else if (choice <= 'a' && choice >= 'z') {
+		cout << endl << "                                               Tht's not an option, try again" << endl << endl;
+	}
 }
 
 
@@ -235,10 +256,8 @@ int string_length = sizeof(chars) - 1;
 int main()
 {
 
-	int choice;
 	int length;
-	string pass;
-	
+
 
 	Error404();
 
@@ -263,13 +282,16 @@ int main()
 			cout << endl;
 			break;
 
-		case 2: cout << endl << "                                          LET'S GENERATE A PASSOWRD FOR YOU" << endl;
+		case 2: cout << endl << "                                             LET'S GENERATE A PASSOWRD FOR YOU" << endl;
 			cout << "------------------------------------------------------------------------------------------------------------------------";
 			cout << endl;
-			cout << "                                            Enter the length of password: ";
+			cout << "                                             Enter the length of password: ";
 			cin >> length;
+
+			ClearScreen();
+
 			srand(time(0));
-			cout << endl << "Your password is: ";
+			cout << endl << "                                                Your password is: ";
 			for (int i = 0; i < length; i++)
 				cout << chars[rand() % string_length];
 			cout << endl << endl << endl << endl;
@@ -280,16 +302,15 @@ int main()
 			UsefulInformation();
 			break;
 
-		case 4: SavePassword3(pass, app);
-
+		case 4: SavePasswordMenu();
 			break;
 
-		default: cout << endl << "Tht's not an option, try again ";
+		default: cout << endl << "                                               Tht's not an option, try again" << endl << endl;
 			break;
 
 		}
 
-		cout << "If you still want to use the app:" << endl;
+		cout << "                                              If you still want to use the app:" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
 		cout << endl;
 		cout << endl;
