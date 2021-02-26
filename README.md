@@ -10,9 +10,7 @@ That's why we made our program.
 
 # Installation
 
-```
 Download the program by pressing the green clone button.
-```
 
 # Participants
 
