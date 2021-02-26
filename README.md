@@ -1,22 +1,23 @@
-<h1>Error 404</h1>
+# Hello, we are team "Error 404"
 
-<img src="Pictures/Logo 2.png" width="1000">
+<img src="https://raw.githubusercontent.com/VNTeneva19/Error-404/master/Pictures/Logo%202.png" width="1000">
 
-<p>Hello, we are team "Error 404". 
+```
 This is our repo for the sprint - Letters, Words, Sentences.
+We know how hard it is to choose a secure password for your accounts.   
+That's why we made our program.
+```
 
-We know how hard it is to choose a secure password for your accounts.
+# Installation
 
-That's why we made "...".</p> 
+```
+Download the program by pressing the green clone button.
+```
 
-<h1>Participants</h1>
+# Participants
 
-<p>Alexander Tsachev: Scrum Trainer 
-
-Vanina Teneva: Q&A Engineer
-
-Maria Ilcheva: Front-End Developer  
-
-Mario Boshev: Back-End Developer   
-
-Mirena Dzhebarova: Code Checker</p>   
+* Alexander Tsachev: Scrum Trainer  
+* Vanina Teneva: Q&A Engineer  
+* Maria Ilcheva: Front-End Developer  
+* Mario Boshev: Back-End Developer   
+* Mirena Dzhebarova: Code Checker  
