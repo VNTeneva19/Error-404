@@ -13,6 +13,9 @@ int SignsCounter = 0;
 int PasswordStrength = 0;
 int LettersCounter = 0;
 
+char chars[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int string_length = sizeof(chars) - 1;
+
 string App;
 string App1;
 string pass;
@@ -21,13 +24,13 @@ int choice;
 int Counter;
 
 // Clear the console
-void ClearScreen() 
+void ClearScreen()
 {
 	cout << "\x1B[2J\x1B[H";
 }
 
 // Display the menu of the program
-void Menu() 
+void Menu()
 {
 	cout << "                                                    CHOOSE AN OPTION!" << endl;
 	cout << endl;
@@ -49,7 +52,7 @@ void Menu()
 	cout << "Type here: ";
 }
 // Display the welcoming menu
-void Error404() 
+void Error404()
 {
 	cout << endl;
 	cout << "                                                HI, WELCOME TO ERROR 404!" << endl;
@@ -74,7 +77,7 @@ void Error404()
 
 }
 // Display tips for a stronger password
-void UsefulInformation() 
+void UsefulInformation()
 {
 	cout << "                                                 CREATE A STRONG PASSWORD" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------";
@@ -88,7 +91,7 @@ void UsefulInformation()
 	cout << "                                     - Add signs to your password" << endl << endl;
 }
 // Check how secure is your password 
-void CheckPasswordMenu() 
+void CheckPasswordMenu()
 {
 	cout << endl << "                                       LET'S CHECK HOW SECURE YOUR PASSWORD IS" << endl;
 	cout << endl;
@@ -97,57 +100,57 @@ void CheckPasswordMenu()
 	cout << "                                                Enter your password: ";
 }
 // Display tips based off your password strength
-void CheckPassword(string pass) 
+void CheckPassword(string pass)
 {
 
-	for (int i = 0; i < pass.size(); i++) 
+	for (int i = 0; i < pass.size(); i++)
 	{
-		if ((pass[i] >= '!' && pass[i] <= '/') || (pass[i] >= ':' && pass[i] <= '?') || (pass[i] >= '[' && pass[i] <= '`') || (pass[i] >= '{' && pass[i] <= '~')) 
+		if ((pass[i] >= '!' && pass[i] <= '/') || (pass[i] >= ':' && pass[i] <= '?') || (pass[i] >= '[' && pass[i] <= '`') || (pass[i] >= '{' && pass[i] <= '~'))
 		{
 			SignsCounter++;
 		}
 	}
 
-	if (SignsCounter != 0) 
+	if (SignsCounter != 0)
 	{
 		PasswordStrength++;
 	}
 
-	for (int i = 0; i < pass.size(); i++) 
+	for (int i = 0; i < pass.size(); i++)
 	{
-		if (pass[i] >= 'a' && pass[i] <= 'z') 
+		if (pass[i] >= 'a' && pass[i] <= 'z')
 		{
 			LettersCounter++;
 		}
 	}
 
-	if (LettersCounter != 0) 
+	if (LettersCounter != 0)
 	{
 		PasswordStrength++;
 	}
 
-	for (int i = 0; i < pass.size(); i++) 
+	for (int i = 0; i < pass.size(); i++)
 	{
-		if (pass[i] >= '0' && pass[i] <= '9') 
+		if (pass[i] >= '0' && pass[i] <= '9')
 		{
 			NumbersCounter++;
 		}
 	}
 
-	if (NumbersCounter != 0) 
+	if (NumbersCounter != 0)
 	{
 		PasswordStrength++;
 	}
 
-	for (int i = 0; i < pass.size(); i++) 
+	for (int i = 0; i < pass.size(); i++)
 	{
-		if (pass[i] >= 'A' && pass[i] <= 'Z') 
+		if (pass[i] >= 'A' && pass[i] <= 'Z')
 		{
 			CapitalLettersCounter++;
 		}
 	}
 
-	if (CapitalLettersCounter != 0) 
+	if (CapitalLettersCounter != 0)
 	{
 		PasswordStrength++;
 	}
@@ -156,28 +159,28 @@ void CheckPassword(string pass)
 
 
 
-	if (PasswordStrength == 4) 
+	if (PasswordStrength == 4)
 	{
 		cout << "Very strong" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
 		cout << endl;
 	}
 
-	if (PasswordStrength == 3) 
+	if (PasswordStrength == 3)
 	{
 		cout << "Strong" << endl << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
 		cout << endl;
 	}
 
-	if (PasswordStrength == 2) 
+	if (PasswordStrength == 2)
 	{
 		cout << "Moderate" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
 		cout << endl;
 	}
 
-	if (PasswordStrength == 1) 
+	if (PasswordStrength == 1)
 	{
 		cout << "Weak" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
@@ -185,33 +188,33 @@ void CheckPassword(string pass)
 	}
 
 
-	if (PasswordStrength < 4) 
+	if (PasswordStrength < 4)
 	{
 		cout << "                                              How to make your password better:" << endl << endl;
 	}
 
 
-	if (pass.size() < 6) 
+	if (pass.size() < 6)
 	{
 		cout << "                                               - Make your password longer!" << endl;
 	}
 
-	if (NumbersCounter == 0) 
+	if (NumbersCounter == 0)
 	{
 		cout << "                                               - Add numbers to your passowrd!" << endl;
 	}
 
-	if (LettersCounter == 0) 
+	if (LettersCounter == 0)
 	{
 		cout << "                                               - Add lower-case letter to your password!" << endl;
 	}
 
-	if (CapitalLettersCounter == 0) 
+	if (CapitalLettersCounter == 0)
 	{
 		cout << "                                               - Add capital letters to your password!" << endl;
 	}
 
-	if (SignsCounter == 0) 
+	if (SignsCounter == 0)
 	{
 		cout << "                                               - Add signs to your password!" << endl;
 	}
@@ -224,7 +227,7 @@ void CheckPassword(string pass)
 
 }
 // Save your password or check a saved password for certain application
-void SavePasswordMenu() 
+void SavePasswordMenu()
 {
 
 	cout << endl << "                                               LET'S SAVE YOUR PASSWORD" << endl;
@@ -236,7 +239,7 @@ void SavePasswordMenu()
 	cout << "                                              Enter your choice here: ";
 	cin >> choice;
 	ClearScreen();
-	if (choice == 1) 
+	if (choice == 1)
 	{
 
 		cout << endl << "                                              LET'S SAVE YOUR PASSWORD" << endl;
@@ -259,7 +262,7 @@ void SavePasswordMenu()
 
 	}
 
-	if (choice == 2) 
+	if (choice == 2)
 	{
 		cout << endl << "                                             LET'S CHECK YOUR SAVED PASSWORD" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
@@ -267,12 +270,12 @@ void SavePasswordMenu()
 		cout << endl;
 		cout << "                                      Enter the app which password you want to see: ";
 		cin >> App1;
-		if (App == App1) 
+		if (App == App1)
 		{
 			cout << endl << "                                            This is your " << App1 << "'s password: " << password << endl << endl << endl << endl;
 		}
 
-		else 
+		else
 		{
 			cout << endl << "                                          You haven't entered a password for this app" << endl << endl;
 		}
@@ -280,28 +283,20 @@ void SavePasswordMenu()
 
 	}
 
-	else if (choice != 1 && choice != 2) 
+	else if (choice != 1 && choice != 2)
 	{
 		cout << endl << "                                               Tht's not an option, try again" << endl << endl;
 	}
 
-	else if (choice <= 'a' && choice >= 'z') 
+	else if (choice <= 'a' && choice >= 'z')
 	{
 		cout << endl << "                                               Tht's not an option, try again" << endl << endl;
 	}
 }
 
-
-char chars[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int string_length = sizeof(chars) - 1;
-// Main menu
-int main()
+int mainMenu() 
 {
-
 	int length;
-
-
-	Error404();
 
 	do {
 
@@ -316,13 +311,14 @@ int main()
 		{
 
 		case 0: cout << "Goodbye!";
-			return 0;
+			return false;
 
 		case 1: CheckPasswordMenu();
 			cin >> pass;
 			ClearScreen();
 			CheckPassword(pass);
 			cout << endl;
+			return true;
 			break;
 
 		case 2: cout << endl << "                                             LET'S GENERATE A PASSOWRD FOR YOU" << endl;
@@ -340,25 +336,43 @@ int main()
 				cout << chars[rand() % string_length];
 			}
 			cout << endl << endl << endl << endl;
+			return true;
 			break;
 
 		case 3: cout << endl;
 			ClearScreen();
 			UsefulInformation();
+			return true;
 			break;
 
 		case 4: SavePasswordMenu();
+			return true;
 			break;
 
 		default: cout << endl << "                                               Tht's not an option, try again" << endl << endl;
+			return true;
 			break;
 
 		}
 
+		
+
+	} while (choice != 0);
+}
+
+int main()
+{
+	bool exitProgram = true;
+	Error404();
+	do
+	{
+		exitProgram = mainMenu();
+		if (exitProgram != false)
+		{ 
 		cout << "                                              If you still want to use the app:" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------------";
 		cout << endl;
 		cout << endl;
-
-	} while (choice != 0);
+		}
+	} while (exitProgram != false);
 }
