@@ -294,6 +294,7 @@ void SavePasswordMenu()
 	}
 }
 
+// Display main menu options
 int mainMenu() 
 {
 	int length;
@@ -360,6 +361,7 @@ int mainMenu()
 	} while (choice != 0);
 }
 
+// Display main menu
 int main()
 {
 	bool exitProgram = true;
