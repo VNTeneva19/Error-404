@@ -20,12 +20,13 @@ string password;
 int choice;
 int Counter;
 
+// Clear the console
 void ClearScreen() 
 {
 	cout << "\x1B[2J\x1B[H";
 }
 
-
+// Display the menu of the program
 void Menu() 
 {
 	cout << "                                                    CHOOSE AN OPTION!" << endl;
@@ -47,7 +48,7 @@ void Menu()
 
 	cout << "Type here: ";
 }
-
+// Display the welcoming menu
 void Error404() 
 {
 	cout << endl;
@@ -72,7 +73,7 @@ void Error404()
 	cout << endl;
 
 }
-
+// Display tips for a stronger password
 void UsefulInformation() 
 {
 	cout << "                                                 CREATE A STRONG PASSWORD" << endl;
@@ -86,7 +87,7 @@ void UsefulInformation()
 	cout << "                                     - Add numbers to your password" << endl;
 	cout << "                                     - Add signs to your password" << endl << endl;
 }
-
+// Check how secure is your password 
 void CheckPasswordMenu() 
 {
 	cout << endl << "                                       LET'S CHECK HOW SECURE YOUR PASSWORD IS" << endl;
@@ -95,6 +96,7 @@ void CheckPasswordMenu()
 	cout << endl;
 	cout << "                                                Enter your password: ";
 }
+// Display tips based off your password strength
 void CheckPassword(string pass) 
 {
 
@@ -221,7 +223,7 @@ void CheckPassword(string pass)
 	LettersCounter = 0;
 
 }
-
+// Save your password or check a saved password for certain application
 void SavePasswordMenu() 
 {
 
@@ -292,7 +294,7 @@ void SavePasswordMenu()
 
 char chars[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int string_length = sizeof(chars) - 1;
-
+// Main menu
 int main()
 {
 
