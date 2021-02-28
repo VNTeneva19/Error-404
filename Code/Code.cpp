@@ -51,7 +51,7 @@ void Menu()
 
 	cout << "Type here: ";
 }
-// Display the welcoming menu
+// Display the name of the team
 void Error404()
 {
 	cout << endl;
